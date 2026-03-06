@@ -1,31 +1,83 @@
-This is a Full Stack E-commerce App. 
-Stack of technologies: Next.js, Sanity, Stripe, Clerk, Shadcn, Tailwind TS.
+# Ecommerce Platform Monorepo
 
-## Getting Started
+## Overview
+
+Nx + pnpm monorepo for a minimal e-commerce platform with:
+
+- `apps/store`: Next.js storefront
+- `apps/admin`: Next.js admin CMS
+- `apps/api`: NestJS API
+- `packages/shared-types`: shared API/frontend types
+- `packages/validators`: zod schemas and shared validation
+- `packages/ui`: shared shadcn-style UI primitives
+- `packages/config`: shared TypeScript, Tailwind, ESLint, Prettier config
+
+## Architecture
+
+- Frontends talk only to the API over HTTP.
+- Prisma targets PostgreSQL and manages the core commerce schema.
+- Redis powers BullMQ background jobs.
+- Local uploads are stored in `/uploads` behind a storage adapter so S3 can be added later.
+- Swagger is available at `/docs` and health checks at `/health`.
+- Pino provides structured request logging and Sentry is initialized when `SENTRY_DSN` is set.
+
+## Setup
+
+1. Install dependencies:
+
 ```bash
-npm run install
+pnpm install
 ```
 
-## Install Sanity CLI
-```bash
-npx sanity@latest schema extract
-```
-
-## Extract Sanity schema
-```bash
-npm run typegen
-```
-
-First, run the development server:
+2. Start local services:
 
 ```bash
-npm run dev
+docker compose up -d
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Copy env files:
 
-## Deploy on Vercel
+```bash
+cp .env.example .env
+cp apps/api/.env.example apps/api/.env
+cp apps/store/.env.local.example apps/store/.env.local
+cp apps/admin/.env.local.example apps/admin/.env.local
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Generate Prisma client, migrate, and seed:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm prisma:generate
+pnpm prisma:migrate
+pnpm prisma:seed
+```
+
+## Development Commands
+
+- `pnpm nx serve store`
+- `pnpm nx serve admin`
+- `pnpm nx serve api`
+- `pnpm dev`
+- `pnpm test`
+- `pnpm test:e2e`
+
+## Prisma Commands
+
+- `pnpm prisma:generate`
+- `pnpm prisma:migrate`
+- `pnpm prisma:seed`
+
+## Notes
+
+- Storefront: `http://localhost:3000`
+- Admin: `http://localhost:3002`
+- API: `http://localhost:3001`
+- Swagger docs: `http://localhost:3001/docs`
+- Health: `http://localhost:3001/health`
+- Seed admin credentials: `admin@example.com` / `password123`
+
+
+## Codex hints
+- Run: `docker compose up -d`
+- Copy env examples and run `pnpm prisma:migrate && pnpm prisma:seed`
+- Start `pnpm nx serve api`, `pnpm nx serve admin`, `pnpm nx serve store` in separate terminals

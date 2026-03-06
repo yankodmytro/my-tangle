@@ -1,0 +1,12 @@
+{
+  "name": "shared-types",
+  "sourceRoot": "packages/shared-types/src",
+  "targets": {
+    "build": {
+      "command": "pnpm --dir packages/shared-types build"
+    },
+    "test": {
+      "command": "pnpm --dir packages/shared-types test"
+    }
+  }
+}

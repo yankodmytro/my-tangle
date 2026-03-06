@@ -1,0 +1,12 @@
+{
+  "name": "validators",
+  "sourceRoot": "packages/validators/src",
+  "targets": {
+    "build": {
+      "command": "pnpm --dir packages/validators build"
+    },
+    "test": {
+      "command": "pnpm --dir packages/validators test"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@ecommerce/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tailwind-preset": "./tailwind-preset.ts",
+    "./eslint": "./eslint.config.ts",
+    "./prettier": "./prettier.config.js",
+    "./tsconfig": "./tsconfig.base.json"
+  }
+}

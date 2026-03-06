@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 33% 98%;
+  --foreground: 210 24% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 24% 15%;
+  --primary: 17 88% 55%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 35 30% 92%;
+  --muted-foreground: 210 16% 35%;
+  --border: 32 26% 84%;
+  --input: 32 26% 84%;
+  --ring: 17 88% 55%;
+  --radius: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 162, 120, 0.28), transparent 25%),
+    linear-gradient(135deg, #fffaf4 0%, #f7efe3 100%);
+  color: hsl(var(--foreground));
+}

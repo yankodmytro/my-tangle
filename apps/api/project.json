@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "sourceRoot": "apps/api/src",
+  "targets": {
+    "serve": {
+      "command": "pnpm --dir apps/api dev"
+    },
+    "build": {
+      "command": "pnpm --dir apps/api build"
+    },
+    "test": {
+      "command": "pnpm --dir apps/api test"
+    }
+  }
+}

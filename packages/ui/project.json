@@ -1,0 +1,12 @@
+{
+  "name": "ui",
+  "sourceRoot": "packages/ui/src",
+  "targets": {
+    "build": {
+      "command": "pnpm --dir packages/ui build"
+    },
+    "test": {
+      "command": "pnpm --dir packages/ui test"
+    }
+  }
+}

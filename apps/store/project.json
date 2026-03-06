@@ -1,0 +1,15 @@
+{
+  "name": "store",
+  "sourceRoot": "apps/store/src",
+  "targets": {
+    "serve": {
+      "command": "pnpm --dir apps/store dev"
+    },
+    "build": {
+      "command": "pnpm --dir apps/store build"
+    },
+    "test": {
+      "command": "pnpm --dir apps/store test"
+    }
+  }
+}

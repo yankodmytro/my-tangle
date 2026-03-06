@@ -1,0 +1,15 @@
+{
+  "name": "admin",
+  "sourceRoot": "apps/admin/src",
+  "targets": {
+    "serve": {
+      "command": "pnpm --dir apps/admin dev"
+    },
+    "build": {
+      "command": "pnpm --dir apps/admin build"
+    },
+    "test": {
+      "command": "pnpm --dir apps/admin test"
+    }
+  }
+}
