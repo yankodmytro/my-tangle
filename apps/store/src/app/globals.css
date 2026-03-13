@@ -22,5 +22,5 @@ body {
   background:
     radial-gradient(circle at top left, rgba(255, 162, 120, 0.28), transparent 25%),
     linear-gradient(135deg, #fffaf4 0%, #f7efe3 100%);
-  color: hsl(var(--foreground));
+  color: hsl(var(--foreground, 210 24% 15%));
 }

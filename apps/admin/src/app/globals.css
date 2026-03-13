@@ -22,5 +22,5 @@ body {
   background:
     linear-gradient(180deg, rgba(117, 191, 214, 0.14), transparent 35%),
     #f8fbfd;
-  color: hsl(var(--foreground));
+  color: hsl(var(--foreground, 220 30% 10%));
 }
