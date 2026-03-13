@@ -8,6 +8,9 @@
     "build": {
       "command": "pnpm --dir apps/api build"
     },
+    "lint": {
+      "command": "pnpm exec eslint \"apps/api/src/**/*.{ts,tsx}\""
+    },
     "test": {
       "command": "pnpm --dir apps/api test"
     }

@@ -5,6 +5,9 @@
     "build": {
       "command": "pnpm --dir packages/validators build"
     },
+    "lint": {
+      "command": "pnpm exec eslint \"packages/validators/src/**/*.{ts,tsx}\""
+    },
     "test": {
       "command": "pnpm --dir packages/validators test"
     }

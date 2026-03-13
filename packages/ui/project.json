@@ -5,6 +5,22 @@
     "build": {
       "command": "pnpm --dir packages/ui build"
     },
+    "build-storybook": {
+      "command": "HOME=$PWD/.storybook-home pnpm --dir packages/ui exec storybook build"
+    },
+    "lint": {
+      "command": "pnpm exec eslint \"packages/ui/src/**/*.{ts,tsx}\" \"packages/ui/.storybook/**/*.{ts,tsx}\""
+    },
+    "storybook": {
+      "command": "HOME=$PWD/.storybook-home pnpm --dir packages/ui exec storybook dev --ci --port 4400"
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ui:build-storybook",
+        "staticFilePath": "packages/ui/storybook-static"
+      }
+    },
     "test": {
       "command": "pnpm --dir packages/ui test"
     }

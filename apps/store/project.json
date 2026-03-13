@@ -8,6 +8,9 @@
     "build": {
       "command": "pnpm --dir apps/store build"
     },
+    "lint": {
+      "command": "pnpm exec eslint \"apps/store/src/**/*.{ts,tsx}\""
+    },
     "test": {
       "command": "pnpm --dir apps/store test"
     }

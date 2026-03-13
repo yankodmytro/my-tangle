@@ -5,6 +5,9 @@
     "build": {
       "command": "pnpm --dir packages/shared-types build"
     },
+    "lint": {
+      "command": "pnpm exec eslint \"packages/shared-types/src/**/*.{ts,tsx}\""
+    },
     "test": {
       "command": "pnpm --dir packages/shared-types test"
     }

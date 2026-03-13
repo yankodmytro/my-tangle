@@ -1,4 +1,6 @@
 node_modules
+.DS_Store
+.idea/
 .nx/cache
 .nx/workspace-data
 .next
@@ -10,3 +12,7 @@ uploads
 pnpm-debug.log
 playwright-report
 test-results
+
+
+storybook-static
+.storybook-home

@@ -8,6 +8,9 @@
     "build": {
       "command": "pnpm --dir apps/admin build"
     },
+    "lint": {
+      "command": "pnpm exec eslint \"apps/admin/src/**/*.{ts,tsx}\""
+    },
     "test": {
       "command": "pnpm --dir apps/admin test"
     }

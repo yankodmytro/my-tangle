@@ -58,8 +58,18 @@ pnpm prisma:seed
 - `pnpm nx serve admin`
 - `pnpm nx serve api`
 - `pnpm dev`
+- `pnpm storybook`
+- `pnpm storybook:build`
 - `pnpm test`
 - `pnpm test:e2e`
+
+## Storybook
+
+- Storybook is configured for `packages/ui`.
+- Start it locally with `pnpm storybook`.
+- Build the static bundle with `pnpm storybook:build`.
+- Story files live alongside UI components in `packages/ui/src/components`.
+- Storybook config lives in `packages/ui/.storybook`.
 
 ## Prisma Commands
 
