@@ -2,8 +2,7 @@
 
 import type { ProductSummary } from '@ecommerce/shared-types';
 import { Card } from '@ecommerce/ui';
-import { I18nextProvider, useTranslation } from 'react-i18next';
-import { i18next } from '../i18n/client';
+import { useTranslation } from 'react-i18next';
 import { NewsletterForm } from './newsletter-form';
 
 function Content({ products }: { products: ProductSummary[] }) {
@@ -30,7 +29,10 @@ function Content({ products }: { products: ProductSummary[] }) {
             <h2 className="text-2xl font-semibold">{product.name}</h2>
             <p className="text-muted-foreground">{product.description}</p>
             <p className="text-lg font-medium">
-              {new Intl.NumberFormat('en-US', { style: 'currency', currency: product.currency }).format(product.price)}
+              {new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: product.currency,
+              }).format(product.price)}
             </p>
           </Card>
         ))}
@@ -40,9 +42,5 @@ function Content({ products }: { products: ProductSummary[] }) {
 }
 
 export function HomeShell({ products }: { products: ProductSummary[] }) {
-  return (
-    <I18nextProvider i18n={i18next}>
-      <Content products={products} />
-    </I18nextProvider>
-  );
+  return <Content products={products} />;
 }
