@@ -16,7 +16,7 @@ export class LocalStorageAdapter implements StorageProvider {
 
     return {
       filename,
-      url: `${this.config.apiUrl}/uploads/${filename}`
+      url: `${this.config.apiUrl}/uploads/${filename}`,
     };
   }
 }

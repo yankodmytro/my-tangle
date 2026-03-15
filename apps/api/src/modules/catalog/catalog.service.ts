@@ -13,7 +13,7 @@ export class CatalogService {
     const products = await this.prisma.product.findMany({
       include: { media: true },
       orderBy: { createdAt: 'desc' },
-      take: 6
+      take: 6,
     });
 
     return products.map((product) => ({
@@ -22,7 +22,7 @@ export class CatalogService {
       slug: product.slug,
       description: product.description,
       price: Number(product.price),
-      currency: product.currency
+      currency: product.currency,
     }));
   }
 

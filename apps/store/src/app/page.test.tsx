@@ -5,15 +5,17 @@ import { describe, expect, it, vi } from 'vitest';
 const redirectMock = vi.fn();
 
 vi.mock('../components/home-shell', () => ({
-  HomeShell: ({ products }: { products: Array<{ name: string }> }) => <div>{products[0]?.name}</div>
+  HomeShell: ({ products }: { products: Array<{ name: string }> }) => (
+    <div>{products[0]?.name}</div>
+  ),
 }));
 
 vi.mock('../components/Layout/BaseLayout', () => ({
-  BaseLayout: ({ children }: { children: React.ReactNode }) => <>{children}</>
+  BaseLayout: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 vi.mock('next/navigation', () => ({
-  redirect: (url: string) => redirectMock(url)
+  redirect: (url: string) => redirectMock(url),
 }));
 
 describe('store page', () => {
@@ -30,7 +32,16 @@ describe('store page', () => {
       'fetch',
       vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => [{ id: '1', name: 'Desk Lamp', slug: 'desk-lamp', description: 'Warm light', price: 129, currency: 'USD' }]
+        json: async () => [
+          {
+            id: '1',
+            name: 'Desk Lamp',
+            slug: 'desk-lamp',
+            description: 'Warm light',
+            price: 129,
+            currency: 'USD',
+          },
+        ],
       })
     );
 

@@ -17,12 +17,12 @@ async function bootstrap() {
   const config = app.get(AppConfigService);
   const logger = pino({
     level: 'info',
-    transport: process.env.NODE_ENV === 'production' ? undefined : { target: 'pino-pretty' }
+    transport: process.env.NODE_ENV === 'production' ? undefined : { target: 'pino-pretty' },
   });
 
   Sentry.init({
     dsn: config.sentryDsn,
-    enabled: Boolean(config.sentryDsn)
+    enabled: Boolean(config.sentryDsn),
   });
 
   app.use(pinoHttp({ logger }));
@@ -30,11 +30,11 @@ async function bootstrap() {
   app.use(json({ limit: '2mb' }));
   app.enableCors({
     origin: config.corsOrigins,
-    credentials: true
+    credentials: true,
   });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.useStaticAssets(join(process.cwd(), config.uploadDir), {
-    prefix: '/uploads/'
+    prefix: '/uploads/',
   });
 
   const swaggerConfig = new DocumentBuilder()

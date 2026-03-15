@@ -9,10 +9,10 @@ import { AppConfigService } from './app-config.service';
     ConfigModule.forRoot({
       isGlobal: true,
       validate: (config) => envSchema.parse(config),
-      envFilePath: ['apps/api/.env', '.env']
-    })
+      envFilePath: ['apps/api/.env', '.env'],
+    }),
   ],
   providers: [AppConfigService],
-  exports: [AppConfigService]
+  exports: [AppConfigService],
 })
 export class AppConfigModule {}

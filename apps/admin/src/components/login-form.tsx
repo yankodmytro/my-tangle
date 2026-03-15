@@ -13,9 +13,9 @@ export function LoginForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setError
+    setError,
   } = useForm<LoginValues>({
-    resolver: zodResolver(loginSchema)
+    resolver: zodResolver(loginSchema),
   });
 
   const onSubmit = async (values: LoginValues) => {
@@ -23,7 +23,7 @@ export function LoginForm() {
       const response = await fetch(`${apiUrl}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values)
+        body: JSON.stringify(values),
       });
 
       if (!response.ok) {
@@ -37,7 +37,7 @@ export function LoginForm() {
       router.refresh();
     } catch {
       setError('root', {
-        message: `API is unavailable. Start the backend on ${apiUrl} and try again.`
+        message: `API is unavailable. Start the backend on ${apiUrl} and try again.`,
       });
     }
   };
@@ -53,7 +53,9 @@ export function LoginForm() {
         <div className="space-y-2">
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" {...register('password')} />
-          {errors.password ? <p className="text-sm text-red-600">{errors.password.message}</p> : null}
+          {errors.password ? (
+            <p className="text-sm text-red-600">{errors.password.message}</p>
+          ) : null}
         </div>
         {errors.root ? <p className="text-sm text-red-600">{errors.root.message}</p> : null}
         <Button type="submit" className="w-full" disabled={isSubmitting}>

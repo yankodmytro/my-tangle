@@ -31,7 +31,7 @@ export class HealthService {
       status: database === 'up' && redis === 'up' ? 'ok' : 'error',
       database,
       redis,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
   }
 }

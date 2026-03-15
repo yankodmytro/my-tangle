@@ -19,8 +19,6 @@
 
 body {
   min-height: 100vh;
-  background:
-    linear-gradient(180deg, rgba(117, 191, 214, 0.14), transparent 35%),
-    #f8fbfd;
+  background: linear-gradient(180deg, rgba(117, 191, 214, 0.14), transparent 35%), #f8fbfd;
   color: hsl(var(--foreground, 220 30% 10%));
 }

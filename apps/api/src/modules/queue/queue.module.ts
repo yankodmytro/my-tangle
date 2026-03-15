@@ -13,7 +13,7 @@ function getRedisConnection(url: string) {
     port: Number(parsed.port || 6379),
     username: parsed.username || undefined,
     password: parsed.password || undefined,
-    maxRetriesPerRequest: null as null
+    maxRetriesPerRequest: null as null,
   };
 }
 
@@ -23,20 +23,22 @@ function getRedisConnection(url: string) {
     {
       provide: REDIS_CLIENT,
       inject: [AppConfigService],
-      useFactory: (config: AppConfigService) => new Redis(config.redisUrl, { maxRetriesPerRequest: null })
+      useFactory: (config: AppConfigService) =>
+        new Redis(config.redisUrl, { maxRetriesPerRequest: null }),
     },
     {
       provide: DEMO_QUEUE,
       inject: [AppConfigService],
-      useFactory: (config: AppConfigService) => new Queue('demo', { connection: getRedisConnection(config.redisUrl) })
+      useFactory: (config: AppConfigService) =>
+        new Queue('demo', { connection: getRedisConnection(config.redisUrl) }),
     },
     DemoQueueService,
     {
       provide: 'REDIS_CONNECTION_OPTIONS',
       inject: [AppConfigService],
-      useFactory: (config: AppConfigService) => getRedisConnection(config.redisUrl)
-    }
+      useFactory: (config: AppConfigService) => getRedisConnection(config.redisUrl),
+    },
   ],
-  exports: [REDIS_CLIENT, DEMO_QUEUE, DemoQueueService, 'REDIS_CONNECTION_OPTIONS']
+  exports: [REDIS_CLIENT, DEMO_QUEUE, DemoQueueService, 'REDIS_CONNECTION_OPTIONS'],
 })
 export class QueueModule {}

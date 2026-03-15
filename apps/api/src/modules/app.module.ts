@@ -21,7 +21,7 @@ import { UsersModule } from './users/users.module';
     OrdersModule,
     QueueModule,
     StorageModule,
-    HealthModule
-  ]
+    HealthModule,
+  ],
 })
 export class AppModule {}

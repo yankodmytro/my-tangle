@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('../../components/login-form', () => ({
-  LoginForm: () => <div>Login form</div>
+  LoginForm: () => <div>Login form</div>,
 }));
 
 describe('admin login page', () => {

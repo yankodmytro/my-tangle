@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Admin',
-  description: 'Admin CMS'
+  description: 'Admin CMS',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

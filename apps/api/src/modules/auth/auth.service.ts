@@ -13,7 +13,7 @@ export class AuthService {
     }
 
     return {
-      token: Buffer.from(`${user.id}:${user.email}`).toString('base64url')
+      token: Buffer.from(`${user.id}:${user.email}`).toString('base64url'),
     };
   }
 }

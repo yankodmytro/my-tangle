@@ -3,24 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: 40 33% 98%;
-  --foreground: 210 24% 15%;
+  --color-text-primary: #2a2828;
+  --color-text-secondary: #ffffff;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #2a2829;
+  --color-border-disabled: #9c9c9c;
+  --color-button-primary: #ee1e90;
+  --color-button-secondary: #7b3096;
+  --color-accent-blue: #4392f1;
+  --color-accent-lilac: #efc3ff;
+
+  --background: 0 0% 100%;
+  --foreground: 0 2% 16%;
   --card: 0 0% 100%;
-  --card-foreground: 210 24% 15%;
-  --primary: 17 88% 55%;
+  --card-foreground: 0 2% 16%;
+  --primary: 327 86% 53%;
   --primary-foreground: 0 0% 100%;
-  --muted: 35 30% 92%;
-  --muted-foreground: 210 16% 35%;
-  --border: 32 26% 84%;
-  --input: 32 26% 84%;
-  --ring: 17 88% 55%;
+  --secondary: 284 52% 39%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 284 100% 88%;
+  --muted-foreground: 330 2% 16%;
+  --border: 0 0% 61%;
+  --input: 0 0% 61%;
+  --ring: 213 86% 60%;
   --radius: 1rem;
 }
 
+/* text */
+
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(255, 162, 120, 0.28), transparent 25%),
-    linear-gradient(135deg, #fffaf4 0%, #f7efe3 100%);
-  color: hsl(var(--foreground, 210 24% 15%));
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }

@@ -16,7 +16,8 @@ export default async function AdminHomePage() {
         <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">Protected route</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight">Admin dashboard placeholder</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          The admin shell is protected by a session cookie issued after authenticating against the API.
+          The admin shell is protected by a session cookie issued after authenticating against the
+          API.
         </p>
       </Card>
     </main>

@@ -18,7 +18,9 @@ export async function HomeShell({ products }: HomeShellProps) {
             i18next, shadcn/ui, react-hook-form, zod
           </span>
           <div className="space-y-4">
-            <h1 className="max-w-2xl text-5xl font-semibold tracking-tight">{t('global.heroTitle')}</h1>
+            <h1 className="max-w-2xl text-5xl font-semibold tracking-tight">
+              {t('global.heroTitle')}
+            </h1>
             <p className="max-w-xl text-lg text-muted-foreground">{t('global.heroBody')}</p>
           </div>
         </div>
@@ -27,7 +29,9 @@ export async function HomeShell({ products }: HomeShellProps) {
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {products.map((product) => (
           <Card key={product.id} className="space-y-3 p-5">
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{t('global.featured')}</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+              {t('global.featured')}
+            </p>
             <h2 className="text-2xl font-semibold">{product.name}</h2>
             <p className="text-muted-foreground">{product.description}</p>
             <p className="text-lg font-medium">
