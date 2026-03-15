@@ -5,9 +5,5 @@ export const ruServerTranslations = {
     heroTitle: 'Запустите свой следующий бестселлер',
     heroBody: 'Современная витрина с локализацией, формами и API-first интеграцией.',
     featured: 'Рекомендуем',
-    cta: 'Присоединиться к списку запуска',
-    name: 'Имя',
-    email: 'Email',
-    success: "Thanks, you're on the list.",
   },
 } as const;
