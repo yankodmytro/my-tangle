@@ -14,7 +14,8 @@
       "@components/*": ["src/components/*"],
       "@app/*": ["src/app/*"],
       "@i18n/*": ["src/i18n/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@stores/*": ["src/stores/*"]
     },
     "plugins": [{ "name": "next" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]
