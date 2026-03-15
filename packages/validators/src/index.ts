@@ -16,7 +16,7 @@ export const envSchema = z.object({
   UPLOAD_DIR: z.string().min(1),
   API_URL: z.url(),
   PORT: z.coerce.number().default(3001),
-  CORS_ORIGIN: z.string().default('http://localhost:3000')
+  CORS_ORIGIN: z.string().default('http://localhost:3000,http://localhost:3002')
 });
 
 export type NewsletterFormValues = z.infer<typeof newsletterFormSchema>;
