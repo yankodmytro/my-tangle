@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 export function LoginForm() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? process.env.API_URL ?? 'http://localhost:3001';
   const router = useRouter();
   const {
     register,
@@ -18,21 +19,27 @@ export function LoginForm() {
   });
 
   const onSubmit = async (values: LoginValues) => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? process.env.API_URL ?? 'http://localhost:3001'}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values)
-    });
+    try {
+      const response = await fetch(`${apiUrl}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values)
+      });
 
-    if (!response.ok) {
-      setError('root', { message: 'Invalid credentials' });
-      return;
+      if (!response.ok) {
+        setError('root', { message: 'Invalid credentials' });
+        return;
+      }
+
+      const data = (await response.json()) as { token: string };
+      document.cookie = `admin_token=${data.token}; Path=/; SameSite=Lax`;
+      router.push('/');
+      router.refresh();
+    } catch {
+      setError('root', {
+        message: `API is unavailable. Start the backend on ${apiUrl} and try again.`
+      });
     }
-
-    const data = (await response.json()) as { token: string };
-    document.cookie = `admin_token=${data.token}; Path=/; SameSite=Lax`;
-    router.push('/');
-    router.refresh();
   };
 
   return (
