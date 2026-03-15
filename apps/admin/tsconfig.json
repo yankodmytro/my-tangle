@@ -1,6 +1,19 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ecommerce/config": ["../../packages/config/package.json"],
+      "@ecommerce/config/tailwind-preset": ["../../packages/config/tailwind-preset.ts"],
+      "@ecommerce/config/eslint": ["../../packages/config/eslint.config.ts"],
+      "@ecommerce/config/prettier": ["../../packages/config/prettier.config.js"],
+      "@ecommerce/config/tsconfig": ["../../packages/config/tsconfig.base.json"],
+      "@ecommerce/shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@ecommerce/ui": ["../../packages/ui/src/index.ts"],
+      "@ecommerce/validators": ["../../packages/validators/src/index.ts"],
+      "@components/*": ["src/components/*"],
+      "@app/*": ["src/app/*"]
+    },
     "plugins": [{ "name": "next" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },

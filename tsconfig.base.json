@@ -24,6 +24,12 @@
       "@ecommerce/ui": [
         "packages/ui/src/index.ts"
       ],
+      "@store/*": [
+        "apps/store/src/*"
+      ],
+      "@admin/*": [
+        "apps/admin/src/*"
+      ],
       "@ecommerce/validators": [
         "packages/validators/src/index.ts"
       ]
