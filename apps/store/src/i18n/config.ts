@@ -1,16 +1,26 @@
-export const supportedUiLanguages = ['ua', 'ru'] as const;
-export type UiLanguage = (typeof supportedUiLanguages)[number];
+export enum Language {
+  Ua = 'ua',
+  Ru = 'ru',
+}
 
-export const defaultUiLanguage: UiLanguage = 'ua';
+export const supportedUiLanguages = [Language.Ua, Language.Ru] as const;
 
-export function resolveUiLanguage(value?: string | null): UiLanguage | undefined {
+export const defaultUiLanguage: Language = Language.Ua;
+
+export function resolveUiLanguage(value?: string | null): Language | undefined {
   if (!value) {
     return undefined;
   }
 
-  return supportedUiLanguages.find((language) => language === value.toLowerCase().trim());
+  const normalizedValue = value.toLowerCase().trim();
+
+  if (normalizedValue === 'uk') {
+    return Language.Ua;
+  }
+
+  return supportedUiLanguages.find((language) => language === normalizedValue);
 }
 
-export function getHtmlLanguage(language: UiLanguage): string {
-  return language === 'ua' ? 'uk' : 'ru';
+export function getHtmlLanguage(language: Language): string {
+  return language === Language.Ua ? 'uk' : 'ru';
 }
