@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { HomeShell } from '@components/home-shell';
 import { BaseLayout } from '@components/Layout/BaseLayout';
 import { resolveUiLanguage } from '@i18n/config';
+import { useInitPageStore } from '@hooks/server/store/useInitPageStore';
 
 async function getProducts(): Promise<ProductSummary[]> {
   try {
@@ -30,12 +31,15 @@ type StorePageProps = {
   }>;
 };
 
-export default async function Page({ params }: StorePageProps) {
+export default async function HomePage({ params }: StorePageProps) {
   const { lang } = await params;
+  const language = resolveUiLanguage(lang);
 
-  if (!resolveUiLanguage(lang)) {
+  if (!language) {
     notFound();
   }
+
+  useInitPageStore(language);
 
   const products = await getProducts();
   return (

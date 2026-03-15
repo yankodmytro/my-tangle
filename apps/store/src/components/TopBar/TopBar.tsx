@@ -1,14 +1,11 @@
-'use client';
+import { useServerTranslation } from '@hooks/server/useServerTranslation';
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-
-export const TopBar = () => {
-  const { t } = useTranslation();
+export const TopBar = async () => {
+  const { t } = await useServerTranslation();
 
   return (
-    <div className="flex items-center justify-center w-full h-4">
-      <div className="md:max-w-5xl">{t('common.mainTopBarTitle')}</div>
+    <div className="flex items-center justify-center w-full h-8 bg-">
+      <div className="md:max-w-5xl">{t('global.mainTopBarTitle')}</div>
     </div>
   );
 };
