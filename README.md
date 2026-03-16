@@ -54,6 +54,9 @@ pnpm prisma:seed
 
 ## Development Commands
 
+To start Store, Admin and API start:
+`pnpm dev`
+
 - `pnpm nx serve store`
 - `pnpm nx serve admin`
 - `pnpm nx serve api`
@@ -87,7 +90,7 @@ pnpm prisma:seed
 - Seed admin credentials: `admin@example.com` / `password123`
 
 
-## Codex hints
+## Hints
 - Run: `docker compose up -d`
 - Copy env examples and run `pnpm prisma:migrate && pnpm prisma:seed`
 - Start `pnpm nx serve api`, `pnpm nx serve admin`, `pnpm nx serve store` in separate terminals
