@@ -22,8 +22,6 @@ async function getProducts(): Promise<ProductSummary[]> {
 export const HomePage = async () => {
   const { t } = await useServerTranslation();
 
-  console.log(process.env.API_URL, 'data123');
-
   const products = await getProducts();
   return (
     <div>
